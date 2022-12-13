@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
-
+import Firebase
 @main
 struct TaskitApp: App {
     let persistenceController = PersistenceController.shared
-
+    init (){
+        FirebaseApp.configure()
+        return 
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
