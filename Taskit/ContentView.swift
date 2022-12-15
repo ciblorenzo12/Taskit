@@ -56,8 +56,8 @@ struct ContentView: View {
                 return
             }
             for i in snap!.documentChanges{
-                let docid = i.document.documentID
-                let name = i.document.get("names")
+                let doctid = i.document.documentID
+                let names = i.document.get("names")
                 DispatchQueue.main.async {
                     namesArr.append(namesSend)
                 }
