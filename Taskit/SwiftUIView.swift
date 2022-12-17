@@ -54,8 +54,8 @@ struct SwiftUIView: View {
                     return
                 }
                 for i in snap!.documentChanges{
-                    let doctid = i.document.documentID
-                    let names = i.document.get("names")
+                    _ = i.document.documentID
+                    _ = i.document.get("names")
                     DispatchQueue.main.async {
                         namesArr.append(namesSend)
                     }
