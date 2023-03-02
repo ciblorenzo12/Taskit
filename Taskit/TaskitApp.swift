@@ -18,6 +18,6 @@ struct TaskitApp: App {
         WindowGroup {
             SwiftUIView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
+        } 
     }
 }

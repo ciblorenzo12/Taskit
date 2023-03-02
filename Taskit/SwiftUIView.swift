@@ -14,6 +14,7 @@ struct SwiftUIView: View {
             VStack{
                 HStack{
                     TextField("\t"+"Send something to the data base, text",text: $namesSend)
+                        .padding([.top, .leading, .bottom])
                     Button(action:{Send()}){
                         Text("Send"+"\t")
                         
