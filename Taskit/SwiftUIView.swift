@@ -7,41 +7,35 @@
 
 import SwiftUI
 import Firebase
-struct SwiftUIView: View {
+
+struct SwiftUIView <DragGesture : Gesture> : View  {
     @State var namesSend = ""
     @State var namesArr : [String] = []
+    let gesture_ : DragGesture
         var body:some View {
+            
             VStack{
-                HStack{
-                    TextField("\t"+"Send something to the data base, text",text: $namesSend)
-                        .padding([.top, .leading, .bottom])
-                    Button(action:{Send()}){
-                        Text("Send"+"\t")
-                        
-                    }
-                }.onAppear(perform:{
-                    Retrieve()
+               
+                Button("Caleb \n Manager") {
                     
-                })
-                
-            
-            
-                List(0..<namesArr.count,id: \.self) { i in Text(namesArr[i])
-                   
                 }
-
+              
+                .frame(width: 200, height: 50).foregroundColor(Color.black).background(Color.blue).blendMode(/*@START_MENU_TOKEN@*/.normal/*@END_MENU_TOKEN@*/).cornerRadius(50).position(x: 200,y: 40).gesture(gesture_
+                )
                 
                 
+               
                 
-                
-            }    }
+            }
+                      
+        }
         
         
         
         func Send(){
             
             let datab = Firestore.firestore()
-            datab.collection("Names").document().setData(["names":namesSend])
+            datab.collection("Names").document().setData(["Names":namesSend])
             
         }
         func Retrieve(){
@@ -66,12 +60,21 @@ struct SwiftUIView: View {
             }
             
         }
+  
+        
+        
+        
     }
+    
     
 
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        SwiftUIView(gesture_:DragGesture())
     }
+    
+    
 }
+
+
